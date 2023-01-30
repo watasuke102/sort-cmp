@@ -25,7 +25,7 @@ int main(void) {
 
   srand(time(NULL));
   for (unsigned int i = 0; i < len; ++i) {
-    data[len] = rand();
+    data[i] = rand();
   }
 
   int* sort_data = calloc(len, sizeof(int));
@@ -35,12 +35,16 @@ int main(void) {
   }
 
   for (int i = 0; i < SORT_FUNC_LEN; ++i) {
+    putchar('\n');
     memcpy(sort_data, data, sizeof(int) * len);
 
     const clock_t begin = clock();
     sort_func[i](sort_data, len);
     const clock_t end = clock();
 
+    for (unsigned int i = 0; i < len; ++i) {
+      printf("%d%s", sort_data[i], (i == len - 1) ? "\n" : ", ");
+    }
     const clock_t total = end - begin;
     printf("End: %ld (%lf sec)\n", total, (double)total / CLOCKS_PER_SEC);
   }
