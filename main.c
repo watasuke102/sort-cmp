@@ -1,6 +1,7 @@
 #include <memory.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 
 #define SORT_FUNC_LEN 1
 void bubblesort(int* const data, int len);
@@ -29,9 +30,16 @@ int main(void) {
     fprintf(stderr, "Failed to allocate array\n");
     return 1;
   }
+
   for (int i = 0; i < SORT_FUNC_LEN; ++i) {
     memcpy(sort_data, data, sizeof(int) * len);
+
+    const clock_t begin = clock();
     sort_func[i](sort_data, len);
+    const clock_t end = clock();
+
+    const clock_t total = end - begin;
+    printf("End: %ld (%lf sec)\n", total, (double)total / CLOCKS_PER_SEC);
   }
 
   free(sort_data);
