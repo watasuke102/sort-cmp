@@ -1,4 +1,2 @@
-void bubblesort(int* const data, int len) {
-  (void)data;
-  (void)len;
+void bubblesort(int* const data, unsigned int len) {
 }

@@ -1,29 +1,32 @@
+#include <limits.h>
 #include <memory.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
 
 #define SORT_FUNC_LEN 1
-void bubblesort(int* const data, int len);
-void (*sort_func[SORT_FUNC_LEN])(int* const data, int len) = {
+void bubblesort(int* const data, unsigned int len);
+void (*sort_func[SORT_FUNC_LEN])(int* const data, unsigned int len) = {
     bubblesort,
 };
 
 int main(void) {
-  int len;
+  unsigned int len;
   printf("Array length: ");
-  scanf("%d", &len);
+  scanf("%u", &len);
+  if (len == 0) {
+    len = UINT_MAX;
+  }
   int* data = calloc(len, sizeof(int));
   if (!data) {
     fprintf(stderr, "Failed to allocate array\n");
     return 1;
   }
 
-  for (int i = 0; i < len; ++i) {
-    printf("data[%2d]: ", i);
-    scanf("%d", data + i);
+  srand(time(NULL));
+  for (unsigned int i = 0; i < len; ++i) {
+    data[len] = rand();
   }
-  printf("=====\n");
 
   int* sort_data = calloc(len, sizeof(int));
   if (!sort_data) {
