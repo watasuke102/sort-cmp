@@ -18,7 +18,8 @@ int main(void) {
   printf("Array length: ");
   scanf("%u", &len);
   if (len == 0) {
-    len = UINT_MAX;
+    // len = UINT_MAX;
+    len = 30000;
   }
   int* data = calloc(len, sizeof(int));
   if (!data) {
@@ -44,12 +45,19 @@ int main(void) {
     const clock_t begin = clock();
     sort_list[i]->func(sort_data, len);
     const clock_t end = clock();
+    printf("Done. ");
 
-    for (unsigned int i = 0; i < len - 1; ++i) {
-      printf("%d%s", sort_data[i], (i == len - 1) ? "\n" : ", ");
+    for (unsigned int i = 0; i < len - 2; ++i) {
+      if (sort_data[i] > sort_data[i + 1]) {
+        printf(
+            "Sort Failed!! (%d: %d -> %d: %d)\n",  //
+            i, sort_data[i],                       //
+            i + 1, sort_data[i + 1]
+        );
+      }
     }
     const clock_t total = end - begin;
-    printf("End: %ld (%lf sec)\n", total, (double)total / CLOCKS_PER_SEC);
+    printf("[%ld (%lf sec)]\n", total, (double)total / CLOCKS_PER_SEC);
   }
 
   free(sort_data);
