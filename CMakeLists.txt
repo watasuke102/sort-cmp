@@ -21,6 +21,7 @@ include_directories("./inc")
 add_executable(${PROJECT_NAME}
   "src/main.c"
   "src/bubble.c"
+  "src/select.c"
 )
 
 target_link_libraries(${PROJECT_NAME})

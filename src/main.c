@@ -6,9 +6,10 @@
 #include <stdlib.h>
 #include <time.h>
 
-extern const Sort  bubble;
+extern const Sort  bubble, select_sort;
 static const Sort* sort_list[] = {
     &bubble,
+    &select_sort,
     NULL,
 };
 
@@ -44,7 +45,7 @@ int main(void) {
     sort_list[i]->func(sort_data, len);
     const clock_t end = clock();
 
-    for (unsigned int i = 0; i < len; ++i) {
+    for (unsigned int i = 0; i < len - 1; ++i) {
       printf("%d%s", sort_data[i], (i == len - 1) ? "\n" : ", ");
     }
     const clock_t total = end - begin;
