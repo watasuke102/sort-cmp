@@ -22,6 +22,7 @@ add_executable(${PROJECT_NAME}
   "src/main.c"
   "src/bubble.c"
   "src/select.c"
+  "src/insert.c"
 )
 
 target_link_libraries(${PROJECT_NAME})
