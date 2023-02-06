@@ -6,11 +6,12 @@
 #include <stdlib.h>
 #include <time.h>
 
-extern const Sort  bubble, select_sort, insert;
+extern const Sort  bubble, select_sort, insert, shell;
 static const Sort* sort_list[] = {
     &bubble,
     &select_sort,
     &insert,
+    &shell,
     NULL,
 };
 
@@ -61,7 +62,6 @@ int main(void) {
     const clock_t total = end - begin;
     printf("[%ld (%lf sec)]\n", total, (double)total / CLOCKS_PER_SEC);
   }
-
   free(sort_data);
   free(data);
   return 0;
