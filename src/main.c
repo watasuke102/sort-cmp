@@ -15,12 +15,12 @@ static const Sort* sort_list[] = {
 
 int main(void) {
   unsigned int len;
-  printf("Array length: ");
-  scanf("%u", &len);
-  if (len == 0) {
-    // len = UINT_MAX;
-    len = 30000;
-  }
+  // printf("Array length: ");
+  // scanf("%u", &len);
+  // if (len == 0) {
+  //   len = UINT_MAX;
+  // }
+  len       = 10000;
   int* data = calloc(len, sizeof(int));
   if (!data) {
     fprintf(stderr, "Failed to allocate array\n");
