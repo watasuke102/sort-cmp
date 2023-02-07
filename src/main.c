@@ -6,7 +6,7 @@
 #include <stdlib.h>
 #include <time.h>
 
-extern const Sort bubble, select_sort, insert, shell, quick;
+extern const Sort bubble, select_sort, insert, shell, quick, merge;
 // clang-format off
 static const Sort* sort_list[] = {
     &bubble,
@@ -14,6 +14,7 @@ static const Sort* sort_list[] = {
     &insert,
     &shell,
     &quick,
+    &merge,
     NULL,
 };
 // clang-format on
@@ -25,7 +26,7 @@ int main(void) {
   // if (len == 0) {
   //   len = UINT_MAX;
   // }
-  len       = 10000;
+  len       = 20000;
   int* data = calloc(len, sizeof(int));
   if (!data) {
     fprintf(stderr, "Failed to allocate array\n");
