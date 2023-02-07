@@ -21,13 +21,13 @@ static const Sort* sort_list[] = {
 // clang-format on
 
 int main(void) {
-  unsigned int len;
-  // printf("Array length: ");
-  // scanf("%u", &len);
-  // if (len == 0) {
-  //   len = UINT_MAX;
-  // }
-  len       = 50000;
+  unsigned int len = 0;
+  printf("Array length: ");
+  scanf("%u", &len);
+  if (len == 0) {
+    len = 50000;
+    printf("(length is empty; use %u)\n", len);
+  }
   int* data = calloc(len, sizeof(int));
   if (!data) {
     fprintf(stderr, "Failed to allocate array\n");
@@ -46,7 +46,7 @@ int main(void) {
   }
 
   for (int i = 0; sort_list[i]; ++i) {
-    printf(">> %12s : ", sort_list[i]->name);
+    printf(">> %10s : ", sort_list[i]->name);
     memcpy(sort_data, data, sizeof(int) * len);
 
     const clock_t begin = clock();
