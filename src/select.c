@@ -8,9 +8,7 @@ static void sort(int* const data, unsigned int len) {
         min_index = j;
       }
     }
-    int tmp         = data[i];
-    data[i]         = data[min_index];
-    data[min_index] = tmp;
+    SWAP(data[i], data[min_index]);
   }
 }
 
