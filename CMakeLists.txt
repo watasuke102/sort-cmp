@@ -24,6 +24,7 @@ add_executable(${PROJECT_NAME}
   "src/select.c"
   "src/insert.c"
   "src/shell.c"
+  "src/quick.c"
 )
 
 target_link_libraries(${PROJECT_NAME})

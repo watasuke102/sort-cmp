@@ -6,12 +6,13 @@
 #include <stdlib.h>
 #include <time.h>
 
-extern const Sort  bubble, select_sort, insert, shell;
+extern const Sort  bubble, select_sort, insert, shell, quick;
 static const Sort* sort_list[] = {
     &bubble,
     &select_sort,
     &insert,
     &shell,
+    &quick,
     NULL,
 };
 
