@@ -6,7 +6,8 @@
 #include <stdlib.h>
 #include <time.h>
 
-extern const Sort  bubble, select_sort, insert, shell, quick;
+extern const Sort bubble, select_sort, insert, shell, quick;
+// clang-format off
 static const Sort* sort_list[] = {
     &bubble,
     &select_sort,
@@ -15,6 +16,7 @@ static const Sort* sort_list[] = {
     &quick,
     NULL,
 };
+// clang-format on
 
 int main(void) {
   unsigned int len;
@@ -42,7 +44,7 @@ int main(void) {
   }
 
   for (int i = 0; sort_list[i]; ++i) {
-    printf("\n>> %s\n", sort_list[i]->name);
+    printf(">> %12s : ", sort_list[i]->name);
     memcpy(sort_data, data, sizeof(int) * len);
 
     const clock_t begin = clock();
@@ -61,7 +63,7 @@ int main(void) {
       }
     }
     const clock_t total = end - begin;
-    printf("[%ld (%lf sec)]\n", total, (double)total / CLOCKS_PER_SEC);
+    printf("[%8ld (%lf sec)]\n", total, (double)total / CLOCKS_PER_SEC);
   }
   free(sort_data);
   free(data);
