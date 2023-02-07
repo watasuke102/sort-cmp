@@ -1,5 +1,3 @@
-#include <stdio.h>
-
 #include "main.h"
 
 #define GAPS_LEN 8
@@ -13,7 +11,6 @@ static void sort(int* const data, unsigned int len) {
       continue;
     }
     // -----
-    // FIXME: when execute following loop, free() is failed  [main.c]
     for (unsigned int i = gap; i < len - gap; ++i) {
       const int    e = data[i];
       unsigned int j;
@@ -23,7 +20,9 @@ static void sort(int* const data, unsigned int len) {
         }
         data[j] = data[j - gap];
       }
-      data[j] = e;
+      if (j < len) {
+        data[j] = e;
+      }
     }
     // -----
   }

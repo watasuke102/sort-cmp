@@ -1,6 +1,5 @@
 #include "main.h"
 
-
 // sort [left, right) recursively
 static void quicksort(int* const data, int left, int right) {
   const int len = right - left;

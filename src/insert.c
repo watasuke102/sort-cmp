@@ -10,7 +10,9 @@ static void sort(int* const data, unsigned int len) {
       }
       data[j] = data[j - 1];
     }
-    data[j] = e;
+    if (j < len) {
+      data[j] = e;
+    }
   }
 }
 
