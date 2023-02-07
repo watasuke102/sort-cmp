@@ -26,6 +26,7 @@ add_executable(${PROJECT_NAME}
   "src/shell.c"
   "src/quick.c"
   "src/merge.c"
+  "src/heap.c"
 )
 
 target_link_libraries(${PROJECT_NAME})
